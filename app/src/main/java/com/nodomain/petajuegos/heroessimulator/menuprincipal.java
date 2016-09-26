@@ -28,6 +28,14 @@ public class menuprincipal extends Activity {
                 Intent i = new Intent(menuprincipal.this, clase);
             }
         });
+        ibAcerca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(menuprincipal.this, contacta.class);
+                startActivity(i);
+                finish();
+            }
+        });
         ibSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,22 +49,13 @@ public class menuprincipal extends Activity {
         ibInventario = (ImageButton)findViewById(R.id.xmlibInventario);
         ibAcerca = (ImageButton)findViewById(R.id.xmlibAcerca);
         ibSalir = (ImageButton)findViewById(R.id.xmlibSalir);
-        rellenarBoton(ibJugar, 2);
-        rellenarBoton(ibInventario, 3);
-        rellenarBoton(ibAcerca, 4);
-        rellenarBoton(ibSalir, 5);
+        util.rellenarBoton(ibJugar, 2, 7, true);
+        util.rellenarBoton(ibInventario, 3, 7, true);
+        util.rellenarBoton(ibAcerca, 4, 7, true);
+        util.rellenarBoton(ibSalir, 5, 7, true);
         ibJugar.setBackgroundResource(R.drawable.botonjugar);
         ibInventario.setBackgroundResource(R.drawable.botoninventario);
         ibAcerca.setBackgroundResource(R.drawable.botonacerca);
         ibSalir.setBackgroundResource(R.drawable.botonsalir);
-    }
-    private void rellenarBoton(ImageButton boton, int posicion) {
-        android.view.ViewGroup.LayoutParams params = boton.getLayoutParams();
-        int tamañoFila = ((util.getAlto()/7));
-        params.height = (tamañoFila) - ((tamañoFila*10)/100);
-        params.width = util.getAncho()/2;
-        boton.setLayoutParams(params);
-        boton.setY(tamañoFila*posicion);
-        Log.e("Tamaño", " " + (tamañoFila*posicion));
     }
 }
