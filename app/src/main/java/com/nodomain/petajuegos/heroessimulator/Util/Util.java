@@ -3,9 +3,14 @@ package com.nodomain.petajuegos.heroessimulator.Util;
 import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.io.FileOutputStream;
 
@@ -46,5 +51,13 @@ public class Util {
         boton.setLayoutParams(params);
         if (setY)
             boton.setY(tamañoFila*posicion);
+    }
+    public void alinearTablon(ImageView iv, int alto) {
+        ViewGroup.MarginLayoutParams mlp;
+        RelativeLayout.LayoutParams rlp;
+        mlp = new ViewGroup.MarginLayoutParams(iv.getLayoutParams());
+        mlp.setMargins(0, alto, 0, 0);
+        rlp = new RelativeLayout.LayoutParams(mlp);
+        iv.setLayoutParams(rlp);
     }
 }

@@ -7,7 +7,18 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:src="@drawable/tabloncontacta"
-    android:id="@+id/xmlimgtablon"/>
+    android:id="@+id/xmlivTablon" />
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/xmlivTablon">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/xmltvTextoAcerca"
+            android:text="asdf \n asdf"
+            />
+    </ScrollView>
     <ImageButton
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
