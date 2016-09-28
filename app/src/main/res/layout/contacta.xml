@@ -2,23 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondopantallamenuprincipal">
+    android:background="@drawable/fondopantallamenuprincipal"
+    android:id="@+id/xmlrlContacta">
     <ImageView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:src="@drawable/tabloncontacta"
     android:id="@+id/xmlivTablon" />
-    <ScrollView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/xmlivTablon">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/xmltvTextoAcerca"
-            android:text="asdf \n asdf"
-            />
-    </ScrollView>
+        android:id="@+id/xmltvAcerca"
+        android:textStyle="italic"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:maxLines="7"
+        android:scrollbars="vertical"
+        />
     <ImageButton
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
