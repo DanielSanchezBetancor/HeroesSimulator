@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.nodomain.petajuegos.heroessimulator.Util.Util;
 
 public class contacta extends Activity {
-    ImageView ivTablon;
+    ImageView ivTablon, ivFlechaArriba, ivFlechaAbajo;
     ImageButton salir;
     Util util;
     TextView textoAcerca;
@@ -39,12 +39,16 @@ public class contacta extends Activity {
     private void inicializarInstancias() {
         util = new Util(this);
         ivTablon = (ImageView)findViewById(R.id.xmlivTablon);
+        ivFlechaArriba = (ImageView)findViewById(R.id.xmlivFlechaArriba);
+        ivFlechaAbajo = (ImageView)findViewById(R.id.xmlivFlechaAbajo);
         salir = (ImageButton)findViewById(R.id.xmlibSalir);
         textoAcerca = (TextView)findViewById(R.id.xmltvAcerca);
         int alto = ((util.getAlto()*20)/100);
         util.alinearTablon(ivTablon, null, alto, 0);
         util.alinearTablon(null, textoAcerca, (alto*2), 35);
-        util.rellenarBoton(salir, 0, 7, false);
+        util.rellenarImageButton(salir, 0, 7, false);
+        util.rellenarImageView(ivFlechaArriba, 4, 10, true, true);
+        util.rellenarImageView(ivFlechaAbajo, 8, 10, true, true);
         salir.setBackgroundResource(R.drawable.botonsalir);
         textoAcerca.setMovementMethod(new ScrollingMovementMethod());
         textoAcerca.setText("Bienvenidos al juego de Heroes Simulator. Este juego fue creado por el equipo de PetaJuegos, dando comienzo al proyecto el 19/09/2016. Esta es la versión alfa, por lo que aqui no habrá contenido ninguno actualmente. ¡Vuelve para saber los cambios tras cada actualización!");

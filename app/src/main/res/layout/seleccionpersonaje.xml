@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <!-- Imágenes con botones -->
+
+    <ImageButton
+        android:id="@+id/imagenGuerrero"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/espada" />
+
+    <ImageButton
+        android:id="@+id/imagenCazador"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imagenGuerrero"
+        android:background="@drawable/arco" />
+
+    <ImageButton
+        android:id="@+id/imagenMago"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imagenCazador"
+        android:background="@drawable/baston1" />
+
+    <!-- Imágenes -->
+
+    <ImageView
+        android:id="@+id/imagenCaracter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/estadisticas"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="80dp"
+        android:layout_toRightOf="@+id/imagenCaracter"
+        android:background="@drawable/estadistica2"
+        android:visibility="invisible" />
+
+    <!-- Textos -->
+
+    <TextView
+        android:id="@+id/statsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/estadisticas"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imagenCaracter" />
+    <ImageButton
+        android:id="@+id/botonContinuar"
+        android:layout_width="125dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Continuar ->" />
+    <ImageButton
+        android:id="@+id/botonAtras"
+        android:layout_width="125dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Atras" />
+</RelativeLayout>

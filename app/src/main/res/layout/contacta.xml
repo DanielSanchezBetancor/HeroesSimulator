@@ -5,10 +5,20 @@
     android:background="@drawable/fondopantallamenuprincipal"
     android:id="@+id/xmlrlContacta">
     <ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/tabloncontacta"
-    android:id="@+id/xmlivTablon" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tabloncontacta"
+        android:id="@+id/xmlivTablon" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/flechaarriba"
+        android:id="@+id/xmlivFlechaArriba"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/flechaabajo"
+        android:id="@+id/xmlivFlechaAbajo"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
