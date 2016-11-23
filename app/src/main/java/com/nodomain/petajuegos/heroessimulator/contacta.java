@@ -30,7 +30,7 @@ public class contacta extends Activity {
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(contacta.this, menuprincipal.class);
+                Intent i = new Intent(contacta.this, MenuPrincipal.class);
                 startActivity(i);
                 finish();
             }

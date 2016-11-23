@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.nodomain.petajuegos.heroessimulator.Util.Util;
 
-public class menuprincipal extends Activity {
+public class MenuPrincipal extends Activity {
     private ImageButton ibJugar, ibInventario, ibAcerca, ibSalir;
     private Util util;
     @Override
@@ -25,13 +25,15 @@ public class menuprincipal extends Activity {
                 Class clase = seleccionpersonaje.class;
                 if (util.getRuta())
                     clase = seleccionmundo.class;
-                Intent i = new Intent(menuprincipal.this, clase);
+                Intent i = new Intent(MenuPrincipal.this, clase);
+                startActivity(i);
+                finish();
             }
         });
         ibAcerca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(menuprincipal.this, contacta.class);
+                Intent i = new Intent(MenuPrincipal.this, contacta.class);
                 startActivity(i);
                 finish();
             }

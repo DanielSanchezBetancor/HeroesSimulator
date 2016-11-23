@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import android.widget.Toast;
 import com.nodomain.petajuegos.heroessimulator.Clases.Cazador;
 import com.nodomain.petajuegos.heroessimulator.Clases.Guerrero;
 import com.nodomain.petajuegos.heroessimulator.Clases.Mago;
-import com.nodomain.petajuegos.heroessimulator.Clases.guerrero;
+import com.nodomain.petajuegos.heroessimulator.Clases.Guerrero;
 import com.nodomain.petajuegos.heroessimulator.Util.Util;
 
 public class seleccionpersonaje extends Activity {
@@ -112,30 +111,60 @@ public class seleccionpersonaje extends Activity {
                     });
                     util.cambiarRuta(weaponPath);
                     String pj = "";
-                    String weapons = "";
+                   /* String weapons = "";*/
+                    double [] stats = new double[9];
                     switch (aux) {
                         case 1:
-                            pj = ("Guerrero|") + (Guerrero.getHp()) + ("|0|") + (Guerrero.getAd()) + ("|0|") + (Guerrero.getArmor()) + ("|") + (Guerrero.getMr()) + ("|") + (Guerrero.getAs()) + ("|") + (Guerrero.getCrit()) + ("|1|0|");
-                            weapons = "Espada pequeña|10|0|3|0|2|2|0|0|3|";
+                            pj = "Guerrero";
+                            stats [0] = Guerrero.getHp();
+                            stats [1] = 0;
+                            stats [2] = Guerrero.getAd();
+                            stats [3] = 0;
+                            stats [4] = Guerrero.getArmor();
+                            stats [5] = Guerrero.getMr();
+                            stats [6] = Guerrero.getAs();
+                            stats [7] = Guerrero.getCrit();
+                            stats [8] = 0;
+                            stats [9] = 1;
+                            /*weapons = "Espada pequeña|10|0|3|0|2|2|0|0|3|";*/
                             break;
                         case 2:
-                            pj = ("Cazador|") + (Cazador.getHp()) + ("|") + (Cazador.getMana()) + ("|") + (Cazador.getAd()) + ("|0|") + (Cazador.getArmor()) + ("|") + (Cazador.getMr()) + ("|") + (Cazador.getAs()) + ("|") + (Cazador.getCrit()) + ("|1|0|");
+                            pj = "Cazador";
+                            stats [0] = Cazador.getHp();
+                            stats [1] = Cazador.getMana();
+                            stats [2] = Cazador.getAd();
+                            stats [3] = 0;
+                            stats [4] = Cazador.getArmor();
+                            stats [5] = Cazador.getMr();
+                            stats [6] = Cazador.getAs();
+                            stats [7] = Cazador.getCrit();
+                            stats [8] = 0;
+                            stats [9] = 1;
                             break;
                         case 3:
-                            pj = ("Mago|") + (Mago.getHp()) + ("|") + (Mago.getMana()) + ("|") + (Mago.getAd()) + ("|") + (Mago.getAp()) + ("|") + (Cazador.getArmor()) + ("|") + (Cazador.getMr()) + ("|") + (Cazador.getAs()) + ("|") + (Cazador.getCrit()) + ("|1|0|");
+                            pj = "Mago";
+                            stats [0] = Mago.getHp();
+                            stats [1] = Mago.getMana();
+                            stats [2] = Mago.getAd();
+                            stats [3] = Mago.getAp();
+                            stats [4] = Mago.getArmor();
+                            stats [5] = Mago.getMr();
+                            stats [6] = Mago.getAs();
+                            stats [7] = Mago.getCrit();
+                            stats [8] = 0;
+                            stats [9] = 1;
                             break;
                     }
-                    util.createFile(pj);
-                    if (!weaponService.checkFile())
-                        weaponService.createFile(weapons);
+                    util.createFile(pj, stats);
+                  //  util.createFile(weapons);
                     ad.create();
                     ad.show();
                 }
             }
         });
-        atras.setOnClickListener(new View.OnClickListener() {
+        ibAtras.setOnClickListener(new View.OnClickListener() {
                                      public void onClick(View view) {
-                                         Intent i = new Intent(SeleccionChar.this, MainActivity.class);
+                                         Intent i = new Intent(seleccionpersonaje.this, MenuPrincipal.class);
                                          startActivity(i);
                                          finish();
                                      }

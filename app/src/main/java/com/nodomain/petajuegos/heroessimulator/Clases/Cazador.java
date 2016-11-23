@@ -9,41 +9,33 @@ public class Cazador {
     static int hp = 105;
     static int mana = 50;
     static int mr = 9;
-    public static int getAd()
-    {
+
+    public static int getAd() {
         return ad;
     }
 
-    public static int getArmor()
-    {
+    public static int getArmor() {
         return armor;
     }
 
-    public static double getAs()
-    {
+    public static double getAs() {
         return as;
     }
 
-    public static double getCrit()
-    {
+    public static double getCrit() {
         return crit;
     }
 
-    public static int getHp()
-    {
+    public static int getHp() {
         return hp;
     }
 
-    public static int getMana()
-    {
+    public static int getMana() {
         return mana;
     }
 
-    public static int getMr()
-    {
+    public static int getMr() {
         return mr;
     }
-
-}
 
 }

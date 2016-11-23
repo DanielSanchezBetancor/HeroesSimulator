@@ -12,10 +12,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+import java.io.RandomAccessFile;
 
 public class Util extends Activity {
     private Context context;
-    private String ruta = "Jugador";
+    private String ruta = "Personaje.txt";
     private DisplayMetrics dm;
     static boolean exists = false;
     String path = "";
@@ -83,11 +84,13 @@ public class Util extends Activity {
         ad.setMessage(message).setCancelable(false);
         return ad;
     }
-    public void createFile(String text) {
+    public void createFile(String text, double[] stats) {
         try {
-            OutputStreamWriter outputstreamwriter = new OutputStreamWriter(openFileOutput(path, Context.MODE_PRIVATE));
-            outputstreamwriter.write(text);
-            outputstreamwriter.close();
+            RandomAccessFile raf = new RandomAccessFile(path, "rw");
+            raf.writeChars(text);
+            for (int i = 0;i<stats.length;i++)
+                raf.writeDouble(stats[i]);
+            raf.close();
         } catch (Exception e) {
             Log.e("Services", "CreateFile -> Creating file", e);
         }
