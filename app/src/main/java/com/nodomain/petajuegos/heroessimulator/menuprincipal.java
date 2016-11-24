@@ -51,10 +51,10 @@ public class MenuPrincipal extends Activity {
         ibInventario = (ImageButton)findViewById(R.id.xmlibInventario);
         ibAcerca = (ImageButton)findViewById(R.id.xmlibAcerca);
         ibSalir = (ImageButton)findViewById(R.id.xmlibSalir);
-        util.rellenarImageButton(ibJugar, 2, 7, true);
-        util.rellenarImageButton(ibInventario, 3, 7, true);
-        util.rellenarImageButton(ibAcerca, 4, 7, true);
-        util.rellenarImageButton(ibSalir, 5, 7, true);
+        util.rellenarImageButton(ibJugar, 1, 40, 20, false, 30, 20);
+        util.rellenarImageButton(ibInventario, 2, 40, 20, false, 40, 20);
+        util.rellenarImageButton(ibAcerca, 3, 40, 20, false, 40, 20);
+        util.rellenarImageButton(ibSalir, 4, 40, 20, false, 40, 20);
         ibJugar.setBackgroundResource(R.drawable.botonjugar);
         ibInventario.setBackgroundResource(R.drawable.botoninventario);
         ibAcerca.setBackgroundResource(R.drawable.botonacerca);

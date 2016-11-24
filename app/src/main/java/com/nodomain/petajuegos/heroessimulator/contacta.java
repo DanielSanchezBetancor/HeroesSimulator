@@ -46,9 +46,9 @@ public class contacta extends Activity {
         int alto = ((util.getAlto()*20)/100);
         util.alinearTablon(ivTablon, null, alto, 0);
         util.alinearTablon(null, textoAcerca, (alto*2), 35);
-        util.rellenarImageButton(salir, 0, 7, false);
-        util.rellenarImageView(ivFlechaArriba, 4, 10, true, true);
-        util.rellenarImageView(ivFlechaAbajo, 8, 10, true, true);
+        util.rellenarImageButton(salir, 1, 20, 10, true, 45, 90);
+       /* util.rellenarImageView(ivFlechaArriba, 4, 10, true, true);
+        util.rellenarImageView(ivFlechaAbajo, 8, 10, true, true);*/
         salir.setBackgroundResource(R.drawable.botonsalir);
         textoAcerca.setMovementMethod(new ScrollingMovementMethod());
         textoAcerca.setText("Bienvenidos al juego de Heroes Simulator. Este juego fue creado por el equipo de PetaJuegos, dando comienzo al proyecto el 19/09/2016. Esta es la versión alfa, por lo que aqui no habrá contenido ninguno actualmente. ¡Vuelve para saber los cambios tras cada actualización!");

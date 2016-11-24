@@ -28,7 +28,7 @@ public class seleccionpersonaje extends Activity {
     Guerrero guerrero = new Guerrero();
     Cazador cazador = new Cazador();
     Mago mago = new Mago();
-    Util util = new Util(this);
+    Util util;
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.seleccionpersonaje);
@@ -36,6 +36,7 @@ public class seleccionpersonaje extends Activity {
     }
 
     public void inicializarInstancias() {
+        util = new Util(this);
         ivCaracter = (ImageView) findViewById(R.id.imagenCaracter);
         ivEstadisticas = (ImageView) findViewById(R.id.estadisticas);
         tvEstadisticas = (TextView) findViewById(R.id.statsText);
@@ -44,13 +45,16 @@ public class seleccionpersonaje extends Activity {
         ibCazador = (ImageButton) findViewById(R.id.imagenCazador);
         ibContinuar = (ImageButton) findViewById(R.id.botonContinuar);
         ibAtras = (ImageButton) findViewById(R.id.botonAtras);
-        util.rellenarImageView(ivCaracter, 50, 100, true, true);
+        util.rellenarImageView(ivCaracter, 50);
         util.alinearTablon(ivEstadisticas, tvEstadisticas, (util.getAlto()*30)/100, (util.getAncho()/2));
-        util.rellenarImageButton(ibGuerrero, 5, 100, true);
-        util.rellenarImageButton(ibCazador, 5, 100, true);
-        util.rellenarImageButton(ibMago, 5, 100, true);
-        util.rellenarImageButton(ibContinuar, 95, 100, true);
-        util.rellenarImageButton(ibAtras, 95, 100, true);
+        util.rellenarImageButton(ibGuerrero, 1, 20, 20, true, 5, 5);
+        util.rellenarImageButton(ibCazador, 2, 20, 20, true, 5, 5);
+        util.rellenarImageButton(ibMago, 3, 20, 20, true, 5, 5);
+        util.rellenarImageButton(ibContinuar, 1, 20, 40, true, 5, 90);
+        util.rellenarImageButton(ibAtras, 2, 20, 40, true, 5, 90);
+        ibGuerrero.setBackgroundResource(R.drawable.habilidad1g);
+        ibCazador.setBackgroundResource(R.drawable.habilidad1c);
+        ibMago.setBackgroundResource(R.drawable.habilidad1m);
         createButtons();
     }
     public void showCharInfo(int personaje, double hp, double mana, double ad, double ap, double armor, double mr, double as, double crit) {

@@ -36,7 +36,7 @@ public class Util extends Activity {
     public boolean getRuta() {
         boolean existe = false;
         try {
-            FileOutputStream fichero = context.openFileOutput(ruta, Context.MODE_PRIVATE);
+            FileOutputStream fichero = new FileOutputStream(ruta);
             existe = true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,17 +44,41 @@ public class Util extends Activity {
         return existe;
     }
 
-    public void rellenarImageButton(ImageButton boton, int posicion, int nFilas, boolean setY) {
+    public void rellenarImageButton(ImageButton boton,/*Segundo intento*/ int nBoton, int tamañoAncho, int tamañoAlto, boolean ordenHorizontal, int distanciaAncho, int distanciaAlto/* int posicion, int nFilas, boolean setY*/) {
         android.view.ViewGroup.LayoutParams params = boton.getLayoutParams();
+        //Segundo intento
+        int ancho = (getAncho()*tamañoAncho)/100;
+        int alto = (getAlto()*tamañoAlto)/100;
+        float margenIzquierdo;
+        float margenArriba;
+        if (ordenHorizontal) {
+            margenIzquierdo = (ancho*(nBoton-1)) + (((nBoton * distanciaAncho) * getAncho()) / 100);
+            margenArriba = (getAlto()*distanciaAlto)/100;
+        } else {
+            margenIzquierdo = (getAncho() * distanciaAncho) / 100;
+            margenArriba = (alto*(nBoton-1))  + (((nBoton * distanciaAlto) * getAlto()) / 100);
+        }
+        params.height = alto;
+        params.width = ancho;
+        params.set
+        boton.setTop((int)margenArriba);
+        boton.setLeft((int)margenIzquierdo);
+        boton.setLayoutParams(params);
+        Log.e("Datos del boton " + nBoton, "Alto-Ancho: " + getAlto() + "-" + getAncho() + "\nAlto: " + alto + "\nAncho: " + ancho + "\nMargen izquierdo/arriba: " + margenIzquierdo + " - " + margenArriba);
+        /*
         int tamañoFila = ((getAlto()/nFilas));
         params.height = (tamañoFila) - ((tamañoFila*10)/100);
         params.width = getAncho()/2;
         boton.setLayoutParams(params);
         if (setY)
             boton.setY(tamañoFila*posicion);
+            */
     }
-    public void rellenarImageView(ImageView boton, int posicion, double nFilas, boolean setY, boolean margenDerecho) {
+    public void rellenarImageView(ImageView boton, /*Segundo intento*/ int nBotones/*int posicion, double nFilas, boolean setY, boolean margenDerecho*/) {
         android.view.ViewGroup.LayoutParams params = boton.getLayoutParams();
+        //segundo intento
+        double anchoBoton = getAncho()/nBotones;
+        /*
         double tamañoFila = ((getAlto()/nFilas));
         double ancho = (tamañoFila) - ((tamañoFila*10)/100);
         params.height = (int)ancho;
@@ -64,6 +88,7 @@ public class Util extends Activity {
             boton.setY((float)tamañoFila*posicion);
         if (margenDerecho)
             boton.setX((float)(getAncho() - ancho));
+            */
     }
     public void alinearTablon(ImageView iv, TextView tv, int margenAlto, int margenIzquierdo) {
         ViewGroup.MarginLayoutParams mlp = new ViewGroup.MarginLayoutParams(0,0);
