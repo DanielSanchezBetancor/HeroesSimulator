@@ -20,11 +20,11 @@ import com.nodomain.petajuegos.heroessimulator.Util.Util;
 
 public class seleccionpersonaje extends Activity {
     TextView tvEstadisticas;
-    ImageView ivCaracter, ivEstadisticas;
+    ImageView ivCaracter;
     ImageButton ibCazador, ibGuerrero, ibMago, ibAtras, ibContinuar;
     final Context context = this;
     int aux = 0;
-    String personaje, stats, ruta = "pjusuario.txt", weaponPath = "weapons.txt";
+    String personaje, stats, ruta = "pjusuario.txt"/*, weaponPath = "weapons.txt"*/;
     Guerrero guerrero = new Guerrero();
     Cazador cazador = new Cazador();
     Mago mago = new Mago();
@@ -38,27 +38,24 @@ public class seleccionpersonaje extends Activity {
     public void inicializarInstancias() {
         util = new Util(this);
         ivCaracter = (ImageView) findViewById(R.id.imagenCaracter);
-        ivEstadisticas = (ImageView) findViewById(R.id.estadisticas);
         tvEstadisticas = (TextView) findViewById(R.id.statsText);
         ibGuerrero = (ImageButton) findViewById(R.id.imagenGuerrero);
         ibMago = (ImageButton) findViewById(R.id.imagenMago);
         ibCazador = (ImageButton) findViewById(R.id.imagenCazador);
         ibContinuar = (ImageButton) findViewById(R.id.botonContinuar);
         ibAtras = (ImageButton) findViewById(R.id.botonAtras);
-        util.rellenarImageView(ivCaracter, 50);
-        util.alinearTablon(ivEstadisticas, tvEstadisticas, (util.getAlto()*30)/100, (util.getAncho()/2));
-        util.rellenarImageButton(ibGuerrero, 1, 20, 20, true, 5, 5);
-        util.rellenarImageButton(ibCazador, 2, 20, 20, true, 5, 5);
-        util.rellenarImageButton(ibMago, 3, 20, 20, true, 5, 5);
-        util.rellenarImageButton(ibContinuar, 1, 20, 40, true, 5, 90);
-        util.rellenarImageButton(ibAtras, 2, 20, 40, true, 5, 90);
-        ibGuerrero.setBackgroundResource(R.drawable.habilidad1g);
-        ibCazador.setBackgroundResource(R.drawable.habilidad1c);
-        ibMago.setBackgroundResource(R.drawable.habilidad1m);
+        int altoBotonAnterior = util.rellenarImageButton(ibGuerrero, 1, 30, 20, true, 2, 5, 0);
+        util.rellenarImageButton(ibCazador, 2, 30, 20, true, 3, 5, 0);
+        util.rellenarImageButton(ibMago, 3, 30, 20, true, 3, 5, 0);
+        altoBotonAnterior = util.rellenarImageView(ivCaracter, 1, 45, 60, true, 3, 3, altoBotonAnterior);
+        util.rellenarImageButton(ibContinuar, 2, 45, 15, true, 3, 90, altoBotonAnterior);
+        util.rellenarImageButton(ibAtras, 1, 45, 15, true, 5, 90, 0);
+        ibGuerrero.setBackgroundResource(R.drawable.espada);
+        ibCazador.setBackgroundResource(R.drawable.arco);
+        ibMago.setBackgroundResource(R.drawable.baston1);
         createButtons();
     }
     public void showCharInfo(int personaje, double hp, double mana, double ad, double ap, double armor, double mr, double as, double crit) {
-        ivEstadisticas.setVisibility(View.VISIBLE);
         ivCaracter.setImageResource(personaje);
         stats = ("HP: ") + (hp)
                 + "\nManá: " + (mana)
@@ -93,6 +90,16 @@ public class seleccionpersonaje extends Activity {
                 aux = 3;
             }
         });
+
+        ibAtras.setOnClickListener(new View.OnClickListener() {
+                                     public void onClick(View view) {
+                                         Intent i = new Intent(seleccionpersonaje.this, MenuPrincipal.class);
+                                         startActivity(i);
+                                         finish();
+                                     }
+                                 }
+
+        );
         ibContinuar.setOnClickListener(new android.view.View.OnClickListener() {
             public void onClick(View view) {
                 if (aux == 0) {
@@ -113,10 +120,10 @@ public class seleccionpersonaje extends Activity {
                             finish();
                         }
                     });
-                    util.cambiarRuta(weaponPath);
+                    util.cambiarRuta(ruta);
                     String pj = "";
                    /* String weapons = "";*/
-                    double [] stats = new double[9];
+                    double [] stats = new double[10];
                     switch (aux) {
                         case 1:
                             pj = "Guerrero";
@@ -160,20 +167,11 @@ public class seleccionpersonaje extends Activity {
                             break;
                     }
                     util.createFile(pj, stats);
-                  //  util.createFile(weapons);
+                    //  util.createFile(weapons);
                     ad.create();
                     ad.show();
                 }
             }
         });
-        ibAtras.setOnClickListener(new View.OnClickListener() {
-                                     public void onClick(View view) {
-                                         Intent i = new Intent(seleccionpersonaje.this, MenuPrincipal.class);
-                                         startActivity(i);
-                                         finish();
-                                     }
-                                 }
-
-        );
     }
 }

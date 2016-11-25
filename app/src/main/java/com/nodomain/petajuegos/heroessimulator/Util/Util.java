@@ -44,8 +44,9 @@ public class Util extends Activity {
         return existe;
     }
 
-    public void rellenarImageButton(ImageButton boton,/*Segundo intento*/ int nBoton, int tamañoAncho, int tamañoAlto, boolean ordenHorizontal, int distanciaAncho, int distanciaAlto/* int posicion, int nFilas, boolean setY*/) {
-        android.view.ViewGroup.LayoutParams params = boton.getLayoutParams();
+    public int rellenarImageButton(ImageButton boton,/*Segundo intento*/ int nBoton, int tamañoAncho, int tamañoAlto, boolean ordenHorizontal, int distanciaAncho, int distanciaAlto, int altoBotonAnterior/* int posicion, int nFilas, boolean setY*/) {
+        ViewGroup.MarginLayoutParams mlp;
+        mlp = new ViewGroup.MarginLayoutParams(boton.getLayoutParams());
         //Segundo intento
         int ancho = (getAncho()*tamañoAncho)/100;
         int alto = (getAlto()*tamañoAlto)/100;
@@ -56,14 +57,16 @@ public class Util extends Activity {
             margenArriba = (getAlto()*distanciaAlto)/100;
         } else {
             margenIzquierdo = (getAncho() * distanciaAncho) / 100;
-            margenArriba = (alto*(nBoton-1))  + (((nBoton * distanciaAlto) * getAlto()) / 100);
+            if (nBoton == 1)
+                margenArriba = (getAlto()*distanciaAlto)/100;
+            else
+                margenArriba = ((getAlto()*distanciaAlto)/100) + altoBotonAnterior;
         }
-        params.height = alto;
-        params.width = ancho;
-        params.set
-        boton.setTop((int)margenArriba);
-        boton.setLeft((int)margenIzquierdo);
-        boton.setLayoutParams(params);
+        mlp.height = alto;
+        mlp.width = ancho;
+        mlp.setMargins((int)margenIzquierdo, (int)margenArriba,0, 0);
+        RelativeLayout.LayoutParams rlp = new RelativeLayout.LayoutParams(mlp);
+        boton.setLayoutParams(rlp);
         Log.e("Datos del boton " + nBoton, "Alto-Ancho: " + getAlto() + "-" + getAncho() + "\nAlto: " + alto + "\nAncho: " + ancho + "\nMargen izquierdo/arriba: " + margenIzquierdo + " - " + margenArriba);
         /*
         int tamañoFila = ((getAlto()/nFilas));
@@ -73,11 +76,35 @@ public class Util extends Activity {
         if (setY)
             boton.setY(tamañoFila*posicion);
             */
+        return (int)margenArriba+alto;
     }
-    public void rellenarImageView(ImageView boton, /*Segundo intento*/ int nBotones/*int posicion, double nFilas, boolean setY, boolean margenDerecho*/) {
+    public int rellenarImageView(ImageView boton, /*Segundo intento*/ int nBoton, int tamañoAncho, int tamañoAlto, boolean ordenHorizontal, int distanciaAncho, int distanciaAlto, int altoBotonAnterior/*int posicion, double nFilas, boolean setY, boolean margenDerecho*/) {
         android.view.ViewGroup.LayoutParams params = boton.getLayoutParams();
         //segundo intento
-        double anchoBoton = getAncho()/nBotones;
+        ViewGroup.MarginLayoutParams mlp;
+        mlp = new ViewGroup.MarginLayoutParams(boton.getLayoutParams());
+        //Segundo intento
+        int ancho = (getAncho()*tamañoAncho)/100;
+        int alto = (getAlto()*tamañoAlto)/100;
+        float margenIzquierdo;
+        float margenArriba;
+        if (ordenHorizontal) {
+            margenIzquierdo = (ancho*(nBoton-1)) + (((nBoton * distanciaAncho) * getAncho()) / 100);
+            margenArriba = ((getAlto()*distanciaAlto))/100 + altoBotonAnterior;
+        } else {
+            margenIzquierdo = (getAncho() * distanciaAncho) / 100;
+            if (nBoton == 1)
+                margenArriba = (getAlto()*distanciaAlto)/100;
+            else
+                margenArriba = ((getAlto()*distanciaAlto)/100) + altoBotonAnterior;
+        }
+        mlp.height = alto;
+        mlp.width = ancho;
+        mlp.setMargins((int)margenIzquierdo, (int)margenArriba,0, 0);
+        RelativeLayout.LayoutParams rlp = new RelativeLayout.LayoutParams(mlp);
+        boton.setLayoutParams(rlp);
+        Log.e("Datos del boton " + nBoton, "Alto-Ancho: " + getAlto() + "-" + getAncho() + "\nAlto: " + alto + "\nAncho: " + ancho + "\nMargen izquierdo/arriba: " + margenIzquierdo + " - " + margenArriba);
+        return (int)margenArriba+alto;
         /*
         double tamañoFila = ((getAlto()/nFilas));
         double ancho = (tamañoFila) - ((tamañoFila*10)/100);

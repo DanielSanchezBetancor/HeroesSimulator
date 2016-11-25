@@ -46,7 +46,7 @@ public class contacta extends Activity {
         int alto = ((util.getAlto()*20)/100);
         util.alinearTablon(ivTablon, null, alto, 0);
         util.alinearTablon(null, textoAcerca, (alto*2), 35);
-        util.rellenarImageButton(salir, 1, 20, 10, true, 45, 90);
+        util.rellenarImageButton(salir, 1, 20, 10, true, 45, 90, 0);
        /* util.rellenarImageView(ivFlechaArriba, 4, 10, true, true);
         util.rellenarImageView(ivFlechaAbajo, 8, 10, true, true);*/
         salir.setBackgroundResource(R.drawable.botonsalir);
