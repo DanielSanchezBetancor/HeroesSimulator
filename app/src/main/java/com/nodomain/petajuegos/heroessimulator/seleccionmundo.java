@@ -1,8 +1,7 @@
 package com.nodomain.petajuegos.heroessimulator;
 
-/**
- * Created by AUTOESCUELA FENIX on 26/09/2016.
- */
+import android.app.Activity;
 
-public class seleccionmundo {
+
+public class seleccionmundo extends Activity {
 }
