@@ -10,7 +10,8 @@
     <ImageButton
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:id="@+id/botonContinuar" />
+        android:id="@+id/botonContinuar"
+        android:text="Continuar" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,12 +28,13 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ivEnemigo"/>
+        android:id="@+id/ibEnemigo"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvInfoEnemigo"
-        android:layout_below="@+id/ivEnemigo"/>
+        android:layout_below="@+id/ibEnemigo"
+        android:layout_alignLeft="@+id/ibEnemigo" />
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

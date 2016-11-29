@@ -21,10 +21,11 @@ public class Tutorial extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.tutorial);
+        util = new Util(this);
         texto = (TextView) findViewById(R.id.texto);
         continuar = (ImageButton) findViewById(R.id.botonContinuar);
         zonaTexto = (ImageView)findViewById(R.id.zonaTexto);
-        util.rellenarImageView(zonaTexto, 1, 99, 20, false, 0, 80, 0);
+        util.rellenarImageView(zonaTexto, 1, 100, 20, false, 0, 75, 0);
         util.rellenarImageButton(continuar, 1, 30, 10, false, 70, 90, 0);
         final AlphaAnimation in = new AlphaAnimation(0.0F, 1.0F);
         in.setDuration(5000L);
@@ -36,7 +37,7 @@ public class Tutorial extends Activity {
                 texto.setText("");
                 personaje = (ImageView) findViewById(R.id.ivPersonaje);
                 altoBotonAnterior = util.rellenarImageView(personaje, 1, 30, 35, false, 10, 5, 0);
-                personaje.setImageResource(R.drawable.cazador);
+                personaje.setImageResource(R.drawable.warrior);
                 personaje.startAnimation(in);
                 infopj = (TextView) findViewById(R.id.tvInfoPJ);
                 infopj.setText("HP: 100/100\nEXP: 0/100\nNivel: 1");
@@ -46,8 +47,9 @@ public class Tutorial extends Activity {
                 continuar.startAnimation(in);
                 continuar.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View view) {
-                        enemigo = (ImageButton) findViewById(R.id.ivEnemigo);
+                        enemigo = (ImageButton) findViewById(R.id.ibEnemigo);
                         util.rellenarImageButton(enemigo, 2, 30, 35, true, 20, 5, altoBotonAnterior);
+//                        enemigo.setBackgroundResource(R.drawable.);
                         texto.setText("Este es tu enemigo. En él, encontramos la vida que tiene. \n¡¡Tapea en él para hacerle daño!!");
                         texto.startAnimation(in);
                         continuar.setClickable(false);
@@ -58,12 +60,14 @@ public class Tutorial extends Activity {
                         infoEnemigo.startAnimation(in);
                         enemigo.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View view) {
+                                infoEnemigo.clearComposingText();
                                 infoEnemigo.setText("HP: 80/100\nDaño: 20");
                                 enemigo.setClickable(false);
                                 texto.setText("Este es tu enemigo. En él, encontramos la vida que tiene.\nAcabas de aprender como atacar a tu enemigo. Enhorabuena.");
                                 continuar.setClickable(true);
                                 continuar.setOnClickListener(new View.OnClickListener() {
                                     public void onClick(View view) {
+                                        infopj.clearComposingText();
                                         infopj.setText("HP: 80/100\nEXP: 0/100\nNivel: 1\nDaño: 20");
                                         texto.setText("¡El enemigo te acaba de atacar! Utiliza una poción para curarte (Click en 'Continuar')");
                                         texto.startAnimation(in);
@@ -74,11 +78,12 @@ public class Tutorial extends Activity {
                                                 potivida = (ImageButton) findViewById(R.id.ibPocionVida);
                                                 potivida.setBackgroundResource(R.drawable.potivida);
                                                 util.rellenarImageButton(potivida, 1, 20, 20, true, 5, 80, 0);
-                                                util.rellenarImageView(zonaTexto, 2, 70, 20, true, 5, 80, 0);
                                                 continuar.setClickable(false);
                                                 potivida.setOnClickListener(new View.OnClickListener() {
                                                     public void onClick(View view) {
                                                         potivida.setClickable(false);
+                                                        zonaTexto = (ImageView)findViewById(R.id.zonaTexto);
+                                                        util.rellenarImageView(zonaTexto, 2, 70, 20, true, 5, 80, 0);
                                                         infopj.setText("HP: 100/100\nEXP: 0/100\nNivel: 1\nTe has curado: 20\nFuente: Poción de vida");
                                                         texto.setText("Bien hecho, has repuesto tus fuerzas y estas listo para la última lección.");
                                                         texto.setAnimation(in);
@@ -90,11 +95,11 @@ public class Tutorial extends Activity {
                                                                 continuar.setClickable(false);
                                                                 texto.setAnimation(in);
                                                                 continuar.setAnimation(in);
+                                                                habilidad = (ImageButton) findViewById(R.id.ibHabilidad);
+                                                                util.rellenarImageButton(habilidad, 1, 15, 15, false, 10, 45, 0);
+                                                                habilidad.setBackgroundResource(R.drawable.habilidad1g);
                                                                 habilidad.setOnClickListener(new View.OnClickListener() {
                                                                     public void onClick(View view) {
-                                                                        habilidad = (ImageButton) findViewById(R.id.ibHabilidad);
-                                                                        util.rellenarImageButton(habilidad, 1, 15, 30, false, 10, 45, 0);
-                                                                        habilidad.setImageResource(R.drawable.habilidad1g);
                                                                         habilidad.setClickable(false);
                                                                         infoEnemigo.setText("Muerto.\nEXP: 33");
                                                                         infopj.setText("HP: 100/100\nEXP: 33/100\nNivel: 1");
