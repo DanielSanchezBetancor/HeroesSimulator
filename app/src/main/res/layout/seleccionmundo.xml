@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+<ImageView
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:id="@+id/ivTitulo"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibMundoUno"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibMundoDos"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibMundoTres"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibMundoCuatro"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMundoUno"
+        android:layout_above="@+id/ibMundoUno"
+        android:layout_alignLeft="@+id/ibMundoUno" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMundoDos"
+        android:layout_above="@+id/ibMundoDos"
+        android:layout_alignLeft="@+id/ibMundoDos" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMundoTres"
+        android:layout_above="@+id/ibMundoTres"
+        android:layout_alignLeft="@+id/ibMundoTres"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMundoCuatro"
+        android:layout_above="@+id/ibMundoCuatro"
+        android:layout_alignLeft="@+id/ibMundoCuatro"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibAtras"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibContinuar"/>
+</RelativeLayout>
