@@ -101,6 +101,7 @@ public class seleccionmundo extends Activity {
                 } else {
                     Intent i = new Intent(seleccionmundo.this, juego.class);
                     startActivity(i);
+                    i.putExtra("Mundo", mundoEscogido);
                     finish();
                 }
             }
