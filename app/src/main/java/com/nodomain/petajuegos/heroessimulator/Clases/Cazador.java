@@ -6,10 +6,13 @@ public class Cazador {
     static int armor = 13;
     static double as = 0.800;
     static double crit = 10;
-    static int hp = 105;
-    static int mana = 50;
+    static double hp = 105;
+    static double mana = 50;
     static int mr = 9;
-
+    static double lvl = 1;
+    public Cazador(double lvl) {
+        this.lvl = lvl;
+    }
     public static int getAd() {
         return ad;
     }
@@ -26,12 +29,12 @@ public class Cazador {
         return crit;
     }
 
-    public static int getHp() {
-        return hp;
+    public static double getHp() {
+        return hp + (lvl * 100);
     }
 
-    public static int getMana() {
-        return mana;
+    public static double getMana() {
+        return mana + (lvl * 10);
     }
 
     public static int getMr() {

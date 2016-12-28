@@ -121,52 +121,19 @@ public class seleccionpersonaje extends Activity {
                         }
                     });
                     util.cambiarRuta(ruta);
-                    String pj = "";
                    /* String weapons = "";*/
-                    double [] stats = new double[10];
                     switch (aux) {
                         case 1:
-                            pj = "Guerrero";
-                            stats [0] = Guerrero.getHp();
-                            stats [1] = 0;
-                            stats [2] = Guerrero.getAd();
-                            stats [3] = 0;
-                            stats [4] = Guerrero.getArmor();
-                            stats [5] = Guerrero.getMr();
-                            stats [6] = Guerrero.getAs();
-                            stats [7] = Guerrero.getCrit();
-                            stats [8] = 0;
-                            stats [9] = 1;
                             /*weapons = "Espada pequeña|10|0|3|0|2|2|0|0|3|";*/
+                            util.createFile("Guerrero", 0, 1);
                             break;
                         case 2:
-                            pj = "Cazador";
-                            stats [0] = Cazador.getHp();
-                            stats [1] = Cazador.getMana();
-                            stats [2] = Cazador.getAd();
-                            stats [3] = 0;
-                            stats [4] = Cazador.getArmor();
-                            stats [5] = Cazador.getMr();
-                            stats [6] = Cazador.getAs();
-                            stats [7] = Cazador.getCrit();
-                            stats [8] = 0;
-                            stats [9] = 1;
+                            util.createFile("Cazador", 0, 1);
                             break;
                         case 3:
-                            pj = "Mago";
-                            stats [0] = Mago.getHp();
-                            stats [1] = Mago.getMana();
-                            stats [2] = Mago.getAd();
-                            stats [3] = Mago.getAp();
-                            stats [4] = Mago.getArmor();
-                            stats [5] = Mago.getMr();
-                            stats [6] = Mago.getAs();
-                            stats [7] = Mago.getCrit();
-                            stats [8] = 0;
-                            stats [9] = 1;
+                            util.createFile("Mago", 0, 1);
                             break;
                     }
-                    util.createFile(pj, stats);
                     //  util.createFile(weapons);
                     ad.create();
                     ad.show();

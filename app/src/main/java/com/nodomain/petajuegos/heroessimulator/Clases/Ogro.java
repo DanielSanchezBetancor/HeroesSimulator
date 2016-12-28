@@ -4,7 +4,7 @@ package com.nodomain.petajuegos.heroessimulator.Clases;
  * Created by AUTOESCUELA FENIX on 22/11/2016.
  */
 
-public class Mago {
+public class Ogro {
     static int ad = 5;
     static int ap = 10;
     static int armor = 13;
@@ -15,8 +15,8 @@ public class Mago {
     static int mr = 9;
     static double lvl = 1;
 
-    public Mago(double lvl) {
-        this.lvl = lvl;
+    public Ogro(double sbMuertos, double bossMuertos) {
+        lvl = sbMuertos + (sbMuertos * 3) + bossMuertos;
     }
 
     public static int getAd() {
@@ -40,11 +40,11 @@ public class Mago {
     }
 
     public static double getHp() {
-        return hp + (lvl * 85);
+        return hp + (lvl * 100);
     }
 
     public static double getMana() {
-        return mana + (lvl * 10);
+        return mana + (lvl * 25);
     }
 
     public static int getMr() {

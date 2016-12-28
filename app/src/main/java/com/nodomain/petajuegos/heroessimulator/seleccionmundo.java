@@ -99,6 +99,10 @@ public class seleccionmundo extends Activity {
                 if (mundoEscogido == 0) {
                     Toast.makeText(seleccionmundo.this, "Selecciona un mundo primero", Toast.LENGTH_SHORT).show();
                 } else {
+                    util.cambiarRuta("Mundo" + mundoEscogido);
+                    if (!util.getRuta()) {
+                        util.crearFicheroMundo(0, 0);
+                    }
                     Intent i = new Intent(seleccionmundo.this, juego.class);
                     startActivity(i);
                     i.putExtra("Mundo", mundoEscogido);

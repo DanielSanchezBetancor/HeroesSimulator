@@ -7,24 +7,32 @@ public class Guerrero {
     static double mr = 10;
     static double as = 1.00;
     static double crit = 0;
-    public Guerrero() {
+    static double lvl = 1;
 
+    public Guerrero(double lvl) {
+        this.lvl = lvl;
     }
+
     public static double getHp() {
-        return hp;
+        return hp + (lvl * 125);
     }
+
     public static double getAd() {
         return ad;
     }
+
     public static double getArmor() {
         return armor;
     }
+
     public static double getMr() {
         return mr;
     }
+
     public static double getAs() {
         return as;
     }
+
     public static double getCrit() {
         return crit;
     }
