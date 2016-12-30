@@ -34,6 +34,10 @@ public class seleccionmundo extends Activity {
         mundocuatro = (ImageButton)findViewById(R.id.ibMundoCuatro);
         atras = (ImageButton)findViewById(R.id.ibAtras);
         continuar = (ImageButton)findViewById(R.id.ibContinuar);
+        textouno = (TextView)findViewById(R.id.tvMundoUno);
+        textodos = (TextView)findViewById(R.id.tvMundoDos);
+        textotres = (TextView)findViewById(R.id.tvMundoTres);
+        textocuatro = (TextView)findViewById(R.id.tvMundoCuatro);
 
         //Rellenar elementos
         titulo.setImageResource(R.drawable.escoge);
@@ -52,13 +56,13 @@ public class seleccionmundo extends Activity {
         util = new Util(this);
 
         //Ajustacion dinamica
-        int altoBotonAnterior = util.rellenarImageView(titulo, 1, 80, 20, true, 10, 5, 0);
-        util.rellenarImageButton(mundouno, 1, 40, 20, false, 5, 5, altoBotonAnterior);
-        altoBotonAnterior = util.rellenarImageButton(mundodos, 2, 40, 20, false, 10, 5, altoBotonAnterior);
-        util.rellenarImageButton(mundotres, 1, 40, 20, false, 5, 5, altoBotonAnterior);
-        util.rellenarImageButton(mundocuatro, 2, 40, 20, false, 10, 5, altoBotonAnterior);
-        util.rellenarImageButton(atras, 1, 50, 20, false, 10, 5, altoBotonAnterior);
-        util.rellenarImageButton(continuar, 2, 40, 20, false, 5, 5, altoBotonAnterior);
+        util.rellenarImageView(titulo, 1, 80, 20, false, 10, 5, 0);
+        util.rellenarImageButton(mundouno, 1, 30, 20, false, 10, 30, 0);
+        util.rellenarImageButton(mundodos, 2, 30, 20, true, 20, 30, 0);
+        util.rellenarImageButton(mundotres, 1, 30, 20, false, 10, 60, 0);
+        util.rellenarImageButton(mundocuatro, 2, 30, 20, true, 20, 60, 0);
+        util.rellenarImageButton(atras, 1, 30, 10, false, 10, 90, 0);
+        util.rellenarImageButton(continuar, 2, 30, 10, true, 20, 90, 0);
     }
     private void logicaBotones() {
         mundouno.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +97,7 @@ public class seleccionmundo extends Activity {
                 finish();
             }
         });
-        mundouno.setOnClickListener(new View.OnClickListener() {
+        continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mundoEscogido == 0) {

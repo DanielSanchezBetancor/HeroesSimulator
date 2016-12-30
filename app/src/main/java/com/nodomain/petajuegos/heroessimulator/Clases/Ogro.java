@@ -5,7 +5,7 @@ package com.nodomain.petajuegos.heroessimulator.Clases;
  */
 
 public class Ogro {
-    static int ad = 5;
+    static double ad = 5;
     static int ap = 10;
     static int armor = 13;
     static double as = 0.670;
@@ -19,7 +19,7 @@ public class Ogro {
         lvl = sbMuertos + (sbMuertos * 3) + bossMuertos;
     }
 
-    public static int getAd() {
+    public static double getAd() {
         return ad;
     }
 

@@ -161,28 +161,30 @@ public class Util extends Activity {
         }
     }
 
-    public Object readFile(int fin) {
-        Object o = new Object();
+    public String readFile(int fin) {
         try {
             RandomAccessFile raf = new RandomAccessFile(path, "r");
+            int i = 16;
+            String frase = "";
             switch (fin) {
                 case 0:
-                    String linea = raf.readLine();
-                    o = linea.substring(0, 15).trim();
-                    break;
+                    while (i != 0) {
+                        frase +=
+                    }
+                    return linea.substring(0, 15).trim();
                 case 1:
                     raf.seek(16);
-                    o = raf.readDouble();
-                    break;
+                    return Double.toString(raf.readDouble());
                 case 2:
                     raf.seek(16);
                     raf.readDouble();
-                    o = raf.readDouble();
+                    return Double.toString(raf.readDouble());
+                default: return null;
             }
         } catch (IOException e) {
             Log.e("Util", "readFile -> No encontro el fichero (IO)", e);
         }
-        return o;
+        return null;
     }
 
     public void crearFicheroMundo(double sbMuertos, double bossMuertos) {

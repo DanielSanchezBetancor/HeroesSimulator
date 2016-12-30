@@ -22,6 +22,7 @@
         <activity android:name=".seleccionpersonaje" />
         <activity android:name=".Tutorial" />
         <activity android:name=".seleccionmundo" />
+        <activity android:name=".juego" />
 
 
     </application>

@@ -25,9 +25,9 @@ public class seleccionpersonaje extends Activity {
     final Context context = this;
     int aux = 0;
     String personaje, stats, ruta = "pjusuario.txt"/*, weaponPath = "weapons.txt"*/;
-    Guerrero guerrero = new Guerrero();
-    Cazador cazador = new Cazador();
-    Mago mago = new Mago();
+    Guerrero guerrero = new Guerrero(1);
+    Cazador cazador = new Cazador(1);
+    Mago mago = new Mago(1);
     Util util;
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -125,13 +125,13 @@ public class seleccionpersonaje extends Activity {
                     switch (aux) {
                         case 1:
                             /*weapons = "Espada pequeña|10|0|3|0|2|2|0|0|3|";*/
-                            util.createFile("Guerrero", 0, 1);
+                            util.createJugadorFile("Guerrero", 0, 1);
                             break;
                         case 2:
-                            util.createFile("Cazador", 0, 1);
+                            util.createJugadorFile("Cazador", 0, 1);
                             break;
                         case 3:
-                            util.createFile("Mago", 0, 1);
+                            util.createJugadorFile("Mago", 0, 1);
                             break;
                     }
                     //  util.createFile(weapons);
