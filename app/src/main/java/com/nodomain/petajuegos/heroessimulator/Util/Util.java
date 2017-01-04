@@ -46,6 +46,7 @@ public class Util extends Activity {
         try {
             FileOutputStream fichero = new FileOutputStream(ruta);
             existe = true;
+            fichero.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -151,8 +152,9 @@ public class Util extends Activity {
     public void createJugadorFile(String personaje, double exp, double lvl) {
         try {
             RandomAccessFile raf = new RandomAccessFile(path, "rw");
-            raf.setLength(16);
-            raf.writeChars(personaje);
+            StringBuffer sb = new StringBuffer(personaje);
+            sb.setLength(16);
+            raf.writeChars(sb.toString());
             raf.writeDouble(exp);
             raf.writeDouble(lvl);
             raf.close();
@@ -162,21 +164,20 @@ public class Util extends Activity {
     }
 
     public String readFile(int fin) {
+        String frase = "";
         try {
             RandomAccessFile raf = new RandomAccessFile(path, "r");
-            int i = 16;
-            String frase = "";
             switch (fin) {
                 case 0:
-                    while (i != 0) {
-                        frase +=
+                    for (int i = 0;i<16;i++) {
+                        frase += raf.readChar();
                     }
-                    return linea.substring(0, 15).trim();
+                    return frase;
                 case 1:
-                    raf.seek(16);
+                    raf.seek(32);
                     return Double.toString(raf.readDouble());
                 case 2:
-                    raf.seek(16);
+                    raf.seek(32);
                     raf.readDouble();
                     return Double.toString(raf.readDouble());
                 default: return null;
@@ -209,7 +210,7 @@ public class Util extends Activity {
                     break;
                 //Devuelve la cantidad de bosses muertos
                 case 1:
-                    raf.readDouble();
+                    raf.seek(8);
                     dato = raf.readDouble();
                     break;
             }
